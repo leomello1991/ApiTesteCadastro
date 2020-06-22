@@ -1,10 +1,15 @@
 import {Router} from 'express'
 import CreateUserService from '../services/CreateUserService'
+import {getRepository} from 'typeorm'
+import User from '../models/User'
 
 const usersRoute = Router()
 
 usersRoute.get('/', async (request, response) => {
-  return response.json({message: 'ok'})
+  const userRepository = getRepository(User)
+  const users = userRepository.find()
+
+  return response.json(users)
 })
 
 

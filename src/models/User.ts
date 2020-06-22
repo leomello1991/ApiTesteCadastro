@@ -1,12 +1,13 @@
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('users')
+@Entity('users') //decorator pega a funça Entity e vai pegar a classe
+// e como parametro da entidade
 class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -14,7 +15,7 @@ class User {
   @Column()
   name: string;
 
-  @Column('decimal')
+  @Column()
   email: string;
 
   @Column()
@@ -29,4 +30,5 @@ class User {
   @UpdateDateColumn()
   updated_at: Date;
 }
+
 export default User;
